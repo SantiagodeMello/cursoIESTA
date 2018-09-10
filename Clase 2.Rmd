@@ -25,6 +25,8 @@ DATA <- data.frame(x,y)
 library(knitr)
 kable(summary(DATA))
 
+# lalala la puta madre quiero que cambie algo!!!
+
 
 ```
 
