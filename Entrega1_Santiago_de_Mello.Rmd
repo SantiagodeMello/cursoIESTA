@@ -1,0 +1,28 @@
+---
+title: "Tarea 1: RMarkdown - Santiago de Mello"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## R Markdown
+
+This is an R Markdown document.
+
+
+```{r pressure, echo=FALSE}
+N <- rpois(n=1,90)
+x <- runif(N)
+y <- runif(N)
+DATA <- data.frame(x,y)
+library(knitr)
+kable(summary(DATA))
+
+```
+
+
+
