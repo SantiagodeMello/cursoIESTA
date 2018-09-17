@@ -16,3 +16,6 @@ library(knitr)
 kable(summary(DATA))
 
 ```
+
+
+
