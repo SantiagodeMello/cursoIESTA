@@ -1,6 +1,6 @@
 ---
-title: "Clase 2"
-output: html_document
+title: "Tarea 1: RMarkdown - Santiago de Mello"
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
