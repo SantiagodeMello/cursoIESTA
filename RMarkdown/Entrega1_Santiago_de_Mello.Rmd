@@ -32,6 +32,9 @@ x_i \sim Unif(0,1) \label{eq2}
 y_i \sim Unif(0,1) \label{eq3}
 \end{align}
 
+El repositorio GitHub de la entrega es: https://github.com/SantiagodeMello/cursoIESTA/blob/master/RMarkdown/Entrega1_Santiago_de_Mello.Rmd
+
+
 \section{Simulaciones y tabla}
 
 A continuación se muestra el código R que genera la simulacíon y una tabla resumiendo la información. 
