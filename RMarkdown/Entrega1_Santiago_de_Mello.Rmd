@@ -1,6 +1,13 @@
 ---
-title: "Tarea 1: RMarkdown - Santiago de Mello"
-output: pdf_document
+title: "Tarea 1: RMarkdown"
+author: "Santiago de Mello" 
+output:
+  pdf_document:
+    number_sections: true
+fontsize: 12pt
+geometry: margin=3cm
+header-includes:
+  - \usepackage{color}
 ---
 
 ```{r setup, include=FALSE}
@@ -9,20 +16,63 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-## R Markdown
+\section{Introducción}
+El objetivo de este trabajo es simular datos aleatorios en lenguaje R y realizar un informe en Rmarkdown que quede disponeible en GitHub.
 
-This is an R Markdown document.
+Se define la cantidad de observaciones N (ecuación \textcolor{red}{ \ref{eq1}}) y se generan 90 datos aleatorios $x_i$ e $y_i$ con las distribuciones indicadas en las ecuaciones \textcolor{red}{ \ref{eq2} y \ref{eq3}}.  En las siguientes secciones se describen los resultados de la simulación en tablas y gráficos
 
 
-```{r pressure, echo=FALSE}
+\begin{align}
+N \sim P_o(90) \label{eq1}
+\end{align}
+\begin{align}
+x_i \sim Unif(0,1) \label{eq2}
+\end{align}
+\begin{align}
+y_i \sim Unif(0,1) \label{eq3}
+\end{align}
+
+\section{Simulaciones y tabla}
+
+A continuación se muestra el código R que genera la simulacíon y una tabla resumiendo la información. 
+
+```{r, results='asis', echo=FALSE}
 N <- rpois(n=1,90)
 x <- runif(N)
 y <- runif(N)
 DATA <- data.frame(x,y)
-library(knitr)
-kable(summary(DATA))
-
+MedX=median(DATA$x)
 ```
 
+
+
+
+```{r echo=FALSE, results="asis"}
+library(xtable)
+print.xtable(
+  xtable(summary(DATA), label="tab:tab1", caption="Summary de x e y simulados"), 
+  comment=FALSE, caption.placement = getOption("xtable.caption.placement", "top"))
+```
+
+
+
+```{r xtable, results="asis", echo=FALSE}
+#library(xtable)
+#xtable(summary(DATA), caption = 'Lala lo', caption.placement = getOption("xtable.caption.placement", "top"))
+# print(xtable(summary(DATA), caption = 'Test Table'), caption.placement = getOption("xtable.caption.placement", "top"))
+# No pude con xtable ....
+
+#knitr::kable(summary(DATA), caption = 'A caption')
+```
+
+
+En la Tabla \ref{tab:tab1} se observa que la mediana de las x es `r MedX`
+
+
+\section{Figura}
+
+```{r, warning=FALSE,echo = FALSE, message=FALSE, fig.cap = "Gráfico de dispersión x-y"}
+plot(x,y)
+```
 
 
