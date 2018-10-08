@@ -1,0 +1,64 @@
+---
+title: "Tarea 1"
+author: "Natalia da Silva, Ignacio Alvarez-Castro"
+output: 
+  pdf_document: 
+   number_sections: true
+geometry: margin = 3cm
+fontsize: 12pt
+---
+
+
+# Esqueleto
+
+1. Crear una carpeta en llamada "Rmarkdown", en tu repositorio para el curso. 
+2. Abrir un archivo de Rmarkdown que compile a pdf. 
+3. En YAML metadata:
+Título del documento: Tarea 1: RMarkdown
+Autores: tu nombre y apellido 
+Secciones: que sean numeradas
+Márgenes: 3cm
+4. Incluir 3 secciones numeradas, "Introducción", "Simulaciones y tabla", "Figura" 
+
+# Introducción
+Describir el ejercicio de simulación incluyendo las fórmulas en el documento (para esto es necesario escribir en lenguaje LaTex).
+
+Incluir un link a tu repositorio personal en Github conteniendo los archivos necesarios para reproducir este (mini) reporte. 
+
+# Simulaciones y tablas
+
+1. Simula datos y los deja en un `data.frame` 
+\[ 
+\begin{array}{ll}
+ N \sim Po(90) & \mbox{cantidad de puntos} \\
+ x_i \sim Unif(0, 1) & N \mbox{ observaciones } \\
+ y_i \sim Unif(0, 1) & N \mbox{ observaciones }
+\end{array}
+\]
+2. Tabla con un resumen de los datos simulados   
+      + Usa `xtable()` para la tabla
+      + incluir un título de la tabla, que salga arriba en el documento final
+      + incluir una etiqueta para poder referenciar la tabla en el texto
+
+3. Completar la frase: "En la Tabla REF se observa que la mediana de las $x$ es -----" de forma que el valor de la mediana se complete automáticamente cuando cambian los datos. 
+
+
+# Figura
+1. Incluir un chunk que dibuje un gráfico de dispersión de $x$ contra $y$
+2. Incluir título de la figura (caption), debajo de la misma
+
+\vspace{3cm}
+
+Material de apoyo: 
+```{r, echo=FALSE, results='asis'}
+library(xtable)
+options(xtable.comment = FALSE)
+Pregunta <- c('Estructura', 'Tablas', 'Figuras', 'Mediana')
+Recurso <- c('https://bookdown.org/yihui/rmarkdown/pdf-document.html', 
+        'Ayudas de xtable() y print.xtable() ',
+        'https://bookdown.org/yihui/rmarkdown/r-code.html', 
+        'https://bookdown.org/yihui/rmarkdown/r-code.html')
+
+xt <- xtable(data.frame(Pregunta, Recurso) )
+print(x=xt, include.rownames = FALSE )
+```
